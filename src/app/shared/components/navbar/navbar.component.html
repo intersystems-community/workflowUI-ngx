@@ -1,0 +1,25 @@
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="container is-fluid">
+        <div class="navbar-brand" style="width: 100%; margin-left: 0">
+            <div class="navbar-item">
+                <span class="has-text-weight-bold" style="font-size: 20px">Workflow UI</span>
+            </div>
+
+            <div class="navbar-end" style="margin-left: auto">
+                <span class="navbar-item" style="display: inline-flex">
+                    <span class="tag is-info">{{user}}</span>
+                </span>
+
+                <div class="navbar-item" style="display: inline-flex; padding-right: 0">
+                    <button pButton
+                            class=" p-button-primary p-button-outlined"
+                            icon="pi pi-sign-out"
+                            iconPos="right"
+                            [label]="'Sign out'"
+                            (click)="logout()">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

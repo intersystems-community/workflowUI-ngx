@@ -1,0 +1,12 @@
+<div class="hero fullheight-with-navbar main-bg">
+    <div class="container is-fluid" style="padding-top: 32px; padding-bottom: 32px">
+        <div class="card border-rounded" style="padding: 16px">
+            <app-tasks-table
+                    [loading]="loading"
+                    [items]="tasks"
+                    (refresh)="loadTasks()"
+            >
+            </app-tasks-table>
+        </div>
+    </div>
+</div>

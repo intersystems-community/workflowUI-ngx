@@ -1,0 +1,110 @@
+<p-table #table
+         [loading]="loading"
+         [globalFilterFields]="filterCols"
+         [paginator]="true"
+         [rows]="25"
+         [rowsPerPageOptions]="[10, 25, 50, 100]"
+         [value]="items"
+         dataKey="id"
+         sortField="timeCreated"
+         [sortOrder]="-1"
+         styleClass="p-datatable-sm p-datatable-gridlines">
+    <ng-template pTemplate="caption">
+        <div class="table-header">
+            List of Tasks
+
+            <span class="p-input-icon-left" style="margin-left: 16px; width: 30%">
+                <i class="pi pi-search"></i>
+                <input pInputText
+                       type="text"
+                       placeholder="Global Search"
+                       style="width: 100%"
+                       (input)="table.filterGlobal($event.target.value, 'contains')"
+                />
+            </span>
+
+            <button pButton
+                    label="Refresh"
+                    icon="pi pi-refresh"
+                    class="is-pulled-right"
+                    (click)="onRefresh()"
+            >
+            </button>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width: 60px">#</th>
+
+            <th *ngFor="let col of cols"
+                [style.width]="col.width"
+                [pSortableColumn]="col.isSortable ? col.field : null">
+                {{col.header}}
+                <p-sortIcon *ngIf="col.isSortable" [field]="col.field"></p-sortIcon>
+            </th>
+
+            <th style="width: 85px"></th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-task let-i="rowIndex">
+        <tr>
+            <td style="text-align: right">{{i + 1}}</td>
+
+            <td [style.width]="col.width"
+                [style.text-align]="col.align"
+                [class.tagged-cell]="col.field === 'isNew'"
+                [ngSwitch]="col.field"
+                *ngFor="let col of cols">
+                <span *ngSwitchCase="'isNew'">
+                    <span *ngIf="task[col.field]" class="tag is-info is-light">New</span>
+                </span>
+
+                <span *ngSwitchCase="'timeCreated'">
+                    {{task[col.field] | date:'dd.MM.yyyy hh:mm:ss'}}
+                </span>
+
+                <span *ngSwitchDefault>
+                    {{task[col.field]}}
+                </span>
+            </td>
+
+            <td class="button-cell">
+                <button *ngIf="task.isNew"
+                        type="button"
+                        pButton
+                        icon="pi pi-check"
+                        iconPos="left"
+                        class="button is-success"
+                        [title]="'Accept task'">
+                </button>
+
+                <button *ngIf="!task.isNew"
+                        type="button"
+                        pButton
+                        icon="pi pi-search"
+                        iconPos="left"
+                        style="margin-right: 8px"
+                        [title]="'Details'">
+                </button>
+
+                <button *ngIf="!task.isNew"
+                        type="button"
+                        pButton
+                        icon="pi pi-minus-circle"
+                        iconPos="left"
+                        class="p-button-danger"
+                        [title]="'Yield task'">
+                    <i class="fa fa-copy"></i>
+                </button>
+            </td>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="paginatorleft">
+        <div class="total">Total: {{table.totalRecords}}</div>
+    </ng-template>
+</p-table>
+
+

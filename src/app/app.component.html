@@ -1,0 +1,17 @@
+<app-navbar
+    [user]="currentUser$$ | async"
+    [hidden]="!isLoggedIn"
+>
+</app-navbar>
+
+<section
+        class="hero"
+        [class.fullheight]="!isLoggedIn"
+        [class.fullheight-with-navbar]="isLoggedIn"
+>
+    <router-outlet></router-outlet>
+</section>
+
+<app-footer></app-footer>
+
+

@@ -1,0 +1,138 @@
+@import "~normalize.css";
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/primeng.min.css";
+@import "~primeng/resources/themes/saga-blue/theme.css";
+@import "~bulma/css/bulma.min.css";
+
+/* open-sans-300 - latin_cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'),
+  url('./assets/fonts/open-sans-v17-latin_cyrillic-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('./assets/fonts/open-sans-v17-latin_cyrillic-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-regular - latin_cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+  url('./assets/fonts/open-sans-v17-latin_cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('./assets/fonts/open-sans-v17-latin_cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-italic - latin_cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'),
+  url('./assets/fonts/open-sans-v17-latin_cyrillic-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('./assets/fonts/open-sans-v17-latin_cyrillic-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-600 - latin_cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'),
+  url('./assets/fonts/open-sans-v17-latin_cyrillic-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('./assets/fonts/open-sans-v17-latin_cyrillic-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-800 - latin_cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'),
+  url('./assets/fonts/open-sans-v17-latin_cyrillic-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('./assets/fonts/open-sans-v17-latin_cyrillic-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html {
+  overflow-x: auto;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+body {
+  font-family: 'Open Sans',BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #4a4a4a;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+blockquote, body, dd, dl, dt, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, html, iframe, legend, li, ol, p, pre, textarea, ul {
+  margin: 0;
+  padding: 0;
+}
+
+.hero.fullheight {
+  min-height: calc(100vh - 35px);
+}
+
+.hero.fullheight-with-navbar {
+  min-height: calc(100vh - 46px - 35px);
+}
+
+.main-bg {
+  background-color: #EDEEF0;
+}
+
+.p-button.p-button-icon-only {
+  height: 26px;
+  width: 26px;
+  font-size: .8rem;
+  padding: 5px 0;
+}
+
+.p-button.p-button-icon-only .pi {
+  font-size: .77rem;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page,
+.p-paginator .p-paginator-first, .p-paginator .p-paginator-prev,
+.p-paginator .p-paginator-next, .p-paginator .p-paginator-last {
+  min-width: 2rem;
+  height: 2rem;
+}
+
+.p-paginator .p-dropdown .p-dropdown-label {
+  line-height: 1.25;
+}
+
+.button.is-small {
+  border-radius: 3px;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.tagged-cell {
+  padding: 6px 7px !important;
+}
+
+.button-cell {
+  text-align: center !important;
+  padding: 4px 7px !important;
+}
+
+.border-rounded {
+  border-radius: 3px;
+}
+
+:root {
+  --font-family:'Open Sans',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}
+
+.p-component,
+.p-link,
+.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-input-token input,
+.p-chips .p-chips-multiple-container .p-chips-input-token input,
+.p-inputtext,
+.p-terminal .p-terminal-input {
+  font-family:'Open Sans',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}

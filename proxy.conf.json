@@ -1,0 +1,6 @@
+{
+  "/csp": {
+    "target": "http://localhost:57772",
+    "secure": false
+  }
+}
