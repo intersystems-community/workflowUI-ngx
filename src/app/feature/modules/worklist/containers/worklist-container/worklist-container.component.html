@@ -5,6 +5,9 @@
                     [loading]="loading"
                     [items]="tasks"
                     (refresh)="loadTasks()"
+                    (accept)="acceptTask($event)"
+                    (relinquish)="relinquishTask($event)"
+                    (details)="showTaskDetails($event)"
             >
             </app-tasks-table>
         </div>

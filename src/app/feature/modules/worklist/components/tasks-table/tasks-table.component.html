@@ -62,7 +62,7 @@
                 </span>
 
                 <span *ngSwitchCase="'timeCreated'">
-                    {{task[col.field] | date:'dd.MM.yyyy hh:mm:ss'}}
+                    {{task[col.field] | date:'dd.MM.yyyy HH:mm:ss'}}
                 </span>
 
                 <span *ngSwitchDefault>
@@ -77,7 +77,9 @@
                         icon="pi pi-check"
                         iconPos="left"
                         class="button is-success"
-                        [title]="'Accept task'">
+                        [title]="'Accept task'"
+                        (click)="onAccept(task)"
+                >
                 </button>
 
                 <button *ngIf="!task.isNew"
@@ -86,7 +88,9 @@
                         icon="pi pi-search"
                         iconPos="left"
                         style="margin-right: 8px"
-                        [title]="'Details'">
+                        [title]="'Details'"
+                        (click)="onDetails(task.id)"
+                >
                 </button>
 
                 <button *ngIf="!task.isNew"
@@ -95,7 +99,9 @@
                         icon="pi pi-minus-circle"
                         iconPos="left"
                         class="p-button-danger"
-                        [title]="'Yield task'">
+                        [title]="'Relinquish task'"
+                        (click)="onRelinquish(task)"
+                >
                     <i class="fa fa-copy"></i>
                 </button>
             </td>
