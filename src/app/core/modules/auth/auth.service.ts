@@ -1,4 +1,3 @@
-import get from 'lodash-es/get';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
@@ -18,6 +17,7 @@ export class AuthService {
      * Timer to finish session for current user
      */
     private sessionTimeout: number = 900;
+    private sessionTimeoutInstance: number | undefined;
 
     currentUser$$: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
     isLoggedIn$$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -33,8 +33,7 @@ export class AuthService {
     constructor(
         private _http: HttpClient,
         private _router: Router
-    ) {
-    }
+    ) {}
 
     /**
      * Send post query with login and password for user log in
@@ -58,7 +57,7 @@ export class AuthService {
     /**
      * Logout
      */
-    logout() {
+    logout(onServer: boolean = true): void {
         this.alive = false;
         // set it back to true, because we need the active subscription on next call of resetTimeout()
         setTimeout(() => this.alive = true);
@@ -66,26 +65,25 @@ export class AuthService {
         this.isLoggedIn$$.next(false);
         localStorage.removeItem('wf-current-user');
         this._router.navigate(['/login']);
-        return this._http.get(`${REST_API_URL}/logout`).subscribe(() => {});
+
+        if (onServer) {
+            this._http.get(`${REST_API_URL}/logout`).subscribe(() => {});
+        }
     }
 
     /**
      * Reset timeout. On subscribe call Logout, hide all Modals and clear Store
      */
     resetTimeout() {
-        // this._store
-        //     .pipe(takeWhile(() => this.alive))
-        //     .subscribe((value) => {
-        //         if (value.auth.user) {
-        //             this.isLoggedOutByTimeout$$.next(false);
-        //             clearTimeout(this.sessionTimeout);
-        //             this.sessionTimeout = setTimeout(() => {
-        //                 this.logout();
-        //                 this.isLoggedOutByTimeout$$.next(true);
-        //             }, value.auth.user.timeout * 1000 - 5000);
-        //         } else {
-        //             clearTimeout(this.sessionTimeout);
-        //         }
-        //     });
+        if (this.isLoggedIn$$.value) {
+            this.isLoggedOutByTimeout$$.next(false);
+            clearTimeout(this.sessionTimeoutInstance);
+            this.sessionTimeoutInstance = setTimeout(() => {
+                this.logout();
+                this.isLoggedOutByTimeout$$.next(true);
+            }, this.sessionTimeout * 1000 - 5000);
+        } else {
+            clearTimeout(this.sessionTimeoutInstance);
+        }
     }
 }

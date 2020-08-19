@@ -3,6 +3,7 @@ import {CardModule} from 'primeng/card';
 import {InputTextModule} from 'primeng/inputtext';
 import {NgModule} from '@angular/core';
 import {PanelModule} from 'primeng/panel';
+import {RippleModule} from 'primeng/ripple';
 import {TableModule} from 'primeng/table';
 
 @NgModule({
@@ -11,6 +12,7 @@ import {TableModule} from 'primeng/table';
         CardModule,
         InputTextModule,
         PanelModule,
+        RippleModule,
         TableModule
     ],
     exports: [
@@ -18,6 +20,7 @@ import {TableModule} from 'primeng/table';
         CardModule,
         InputTextModule,
         PanelModule,
+        RippleModule,
         TableModule
     ]
 })

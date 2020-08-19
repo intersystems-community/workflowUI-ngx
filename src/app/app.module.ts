@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
+import {CustomInterceptor} from './custom-interceptor';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 
 import {AppRouting} from './app.routing';
@@ -24,7 +25,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         SharedModule,
         VendorModule
     ],
-    providers: [],
+    providers: [
+        {provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true}
+    ],
     declarations: [
         AppComponent,
         // directives
