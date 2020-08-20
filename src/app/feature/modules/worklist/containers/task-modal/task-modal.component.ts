@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {DynamicDialogConfig, DynamicDialogRef} from 'primeng/dynamicdialog';
+import {DialogService, DynamicDialogConfig, DynamicDialogRef} from 'primeng/dynamicdialog';
 import {Task} from '@core/models/taks';
+import {ModalBaseComponent} from '@shared/components/modal-base/modal-base.component';
 import {WorklistService} from '../../worklist.service';
 
 @Component({
@@ -8,15 +9,17 @@ import {WorklistService} from '../../worklist.service';
     templateUrl: './task-modal.component.html',
     styleUrls: ['./task-modal.component.scss'],
 })
-export class TaskModalComponent implements OnInit {
+export class TaskModalComponent extends ModalBaseComponent implements OnInit {
     task: Task | null = null;
 
     /** @ignore */
     constructor(
-        private _config: DynamicDialogConfig,
-        private _ref: DynamicDialogRef,
+        protected _config: DynamicDialogConfig,
+        protected _ref: DynamicDialogRef,
         private _worklistService: WorklistService
-    ) {}
+    ) {
+        super(_config, _ref);
+    }
 
     ngOnInit(): void {
         const id = this._config.data.id;

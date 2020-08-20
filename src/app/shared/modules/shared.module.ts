@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {BaseComponent} from '../components/base/base.component';
 import {FooterComponent} from '../components/footer/footer.component';
 import {NavbarComponent} from '../components/navbar/navbar.component';
+import {ModalBaseComponent} from '@shared/components/modal-base/modal-base.component';
 
 import {RouterModule} from '@angular/router';
 import {VendorModule} from '@shared/modules/vendor.module';
@@ -12,6 +13,7 @@ import {VendorModule} from '@shared/modules/vendor.module';
         BaseComponent,
         FooterComponent,
         NavbarComponent,
+        ModalBaseComponent
     ],
     imports: [
         RouterModule,
@@ -21,6 +23,7 @@ import {VendorModule} from '@shared/modules/vendor.module';
         BaseComponent,
         FooterComponent,
         NavbarComponent,
+        ModalBaseComponent
     ]
 })
 export class SharedModule { }

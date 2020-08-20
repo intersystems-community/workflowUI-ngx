@@ -7,7 +7,12 @@
 
             <div class="navbar-end" style="margin-left: auto">
                 <span class="navbar-item" style="display: inline-flex">
-                    <span class="tag is-info">{{user}}</span>
+                    <span class="tag is-info" style="font-size: 13px;" [title]="'Current user'">
+                        <i class="pi pi-user"
+                           style="font-size: 13px; font-weight: bold; vertical-align: middle; margin-right: 6px">
+                        </i>
+                        {{user}}
+                    </span>
                 </span>
 
                 <div class="navbar-item" style="display: inline-flex; padding-right: 0">

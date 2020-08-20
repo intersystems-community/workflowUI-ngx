@@ -1,6 +1,6 @@
 import {ButtonModule} from 'primeng/button';
 import {CardModule} from 'primeng/card';
-import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import {DialogService, DynamicDialogConfig, DynamicDialogModule, DynamicDialogRef} from 'primeng/dynamicdialog';
 import {InputTextModule} from 'primeng/inputtext';
 import {NgModule} from '@angular/core';
 import {PanelModule} from 'primeng/panel';
