@@ -12,7 +12,7 @@ export class TasksTableComponent {
     @Input() loading: boolean = false;
 
     @Output() accept: EventEmitter<Task> = new EventEmitter<Task>();
-    @Output() details: EventEmitter<string> = new EventEmitter<string>();
+    @Output() details: EventEmitter<Task> = new EventEmitter<Task>();
     @Output() refresh: EventEmitter<null> = new EventEmitter<null>();
     @Output() relinquish: EventEmitter<Task> = new EventEmitter<Task>();
 
@@ -38,8 +38,8 @@ export class TasksTableComponent {
         this.relinquish.emit(task);
     }
 
-    onDetails(id: string): void {
-        this.details.emit(id);
+    onDetails(task: Task): void {
+        this.details.emit(task);
     }
 
     onRefresh(): void {

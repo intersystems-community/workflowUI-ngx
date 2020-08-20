@@ -11,6 +11,7 @@
                     <label class="label" for="username">Username</label>
                     <input type="text"
                            id="username"
+                           autocomplete="username"
                            [placeholder]="'Enter your username'"
                            [formControl]="loginForm.get('username')"
                            pInputText
@@ -22,6 +23,7 @@
                     <label class="label" for="password">Password</label>
                     <input type="password"
                            id="password"
+                           autocomplete="current-password"
                            [placeholder]="'Enter your password'"
                            [formControl]="loginForm.get('password')"
                            pInputText

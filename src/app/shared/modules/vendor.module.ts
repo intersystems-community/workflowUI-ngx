@@ -1,5 +1,6 @@
 import {ButtonModule} from 'primeng/button';
 import {CardModule} from 'primeng/card';
+import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {InputTextModule} from 'primeng/inputtext';
 import {NgModule} from '@angular/core';
 import {PanelModule} from 'primeng/panel';
@@ -10,6 +11,7 @@ import {TableModule} from 'primeng/table';
     imports: [
         ButtonModule,
         CardModule,
+        DynamicDialogModule,
         InputTextModule,
         PanelModule,
         RippleModule,
@@ -18,6 +20,7 @@ import {TableModule} from 'primeng/table';
     exports: [
         ButtonModule,
         CardModule,
+        DynamicDialogModule,
         InputTextModule,
         PanelModule,
         RippleModule,

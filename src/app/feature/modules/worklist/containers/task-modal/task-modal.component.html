@@ -1,0 +1,44 @@
+<div>
+    <div class="columns is-multiline">
+        <div class="column is-full">
+            <span [title]="'Time created'" style="display: inline-block; margin-right: 32px">
+                <i class="pi pi-clock" style="font-weight: bold; vertical-align: middle; margin-right: 4px"></i>
+                <span style="font-size: 13px; font-weight: 600">
+                    {{task?.timeCreated | date: 'dd.MM.yyyy HH:mm.ss'}}
+                </span>
+            </span>
+
+            <span [title]="'Role'" style="display: inline-block; margin-right: 32px">
+                <i class="pi pi-user" style="font-weight: bold; vertical-align: middle; margin-right: 4px"></i>
+                <span style="font-size: 13px; font-weight: 600">
+                    {{task?.role}}
+                </span>
+            </span>
+
+            <div [title]="'Priority'" style="display: inline-flex;" class="tags has-addons">
+                <span class="tag is-light" style="margin-bottom: 0; font-size: 12px">Priority</span>
+                <span class="tag" style="margin-bottom: 0; font-size: 12px"
+                      [class.is-danger]="task && task.priority === 1"
+                      [class.is-warning]="task && task.priority === 2"
+                      [class.is-success]="task && task.priority === 3"
+                      [class.is-primary]="task && task.priority === 4"
+                      [class.is-info]="task && task.priority < 4"
+                >
+                    <i class="pi pi-arrow-up"
+                       style="font-size: 9px; font-weight: bold; vertical-align: middle; margin-right: 4px"
+                       *ngIf="task && task.priority <= 3"></i>
+
+                    <i class="pi pi-arrow-down"
+                       style="font-size: 9px; font-weight: bold; vertical-align: middle; margin-right: 4px"
+                       *ngIf="task && task.priority > 3"></i>
+                    {{task?.priority}}
+                </span>
+            </div>
+        </div>
+
+        <!--Message-->
+        <div class="column is-full">
+            {{task?.message}}
+        </div>
+    </div>
+</div>
