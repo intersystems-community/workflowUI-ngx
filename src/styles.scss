@@ -51,8 +51,8 @@
 }
 
 html {
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
   font-size: 14px;
 }
 
@@ -62,6 +62,14 @@ body {
   font-size: 1em;
   font-weight: 400;
   line-height: 1.5;
+  overflow-x: auto;
+  overflow-y: auto;
+  height: 100vh;
+  width: 100vw;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 blockquote, body, dd, dl, dt, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, html, iframe, legend, li, ol, p, pre, textarea, ul {
@@ -101,6 +109,17 @@ blockquote, body, dd, dl, dt, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, html
 
 .p-paginator .p-dropdown .p-dropdown-label {
   line-height: 1.25;
+}
+
+.button {
+  height: initial;
+  padding: .5rem 1rem;
+  line-height: 1.15;
+}
+
+.button.is-success.is-focused:not(:active),
+.button.is-success:focus:not(:active) {
+  box-shadow: 0 0 0 0.2rem rgba(72,199,116,.25);
 }
 
 .button.is-small {

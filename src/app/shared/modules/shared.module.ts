@@ -1,9 +1,12 @@
 import {NgModule} from '@angular/core';
 
 import {BaseComponent} from '../components/base/base.component';
+import {ClickOutsideDirective} from '@shared/directives/click-outside.directive';
 import {FooterComponent} from '../components/footer/footer.component';
-import {NavbarComponent} from '../components/navbar/navbar.component';
+import {GetPipe} from '@shared/pipes/get.pipe';
+import {HandleLinkDirective} from '@shared/directives/handle-link.directive';
 import {ModalBaseComponent} from '@shared/components/modal-base/modal-base.component';
+import {NavbarComponent} from '../components/navbar/navbar.component';
 
 import {RouterModule} from '@angular/router';
 import {VendorModule} from '@shared/modules/vendor.module';
@@ -12,8 +15,12 @@ import {VendorModule} from '@shared/modules/vendor.module';
     declarations: [
         BaseComponent,
         FooterComponent,
+        GetPipe,
         NavbarComponent,
-        ModalBaseComponent
+        ModalBaseComponent,
+        // directives
+        ClickOutsideDirective,
+        HandleLinkDirective
     ],
     imports: [
         RouterModule,
@@ -22,8 +29,12 @@ import {VendorModule} from '@shared/modules/vendor.module';
     exports: [
         BaseComponent,
         FooterComponent,
+        GetPipe,
         NavbarComponent,
-        ModalBaseComponent
+        ModalBaseComponent,
+        // directives
+        ClickOutsideDirective,
+        HandleLinkDirective
     ]
 })
 export class SharedModule { }

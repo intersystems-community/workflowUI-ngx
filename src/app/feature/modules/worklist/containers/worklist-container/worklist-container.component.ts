@@ -50,8 +50,12 @@ export class WorklistContainerComponent implements OnInit {
     showTaskDetails(task: Task): void {
         const ref = this._dialogService.open(TaskModalComponent, {
             data: {id: task.id},
-            header: task.subject,
+            header: task.subject || 'Workflow task',
+            dismissableMask: false,
+            modal: true,
             width: '70%'
         });
+
+        ref.onClose.subscribe(action => action ? this.loadTasks() : null);
     }
 }

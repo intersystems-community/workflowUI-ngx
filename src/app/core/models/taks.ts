@@ -1,7 +1,7 @@
 export interface Task {
     action?: string;
     actions?: string;
-    formFields?: any;
+    formFields: {[key: string]: string};
     id: string;
     isNew: boolean;
     message: string;

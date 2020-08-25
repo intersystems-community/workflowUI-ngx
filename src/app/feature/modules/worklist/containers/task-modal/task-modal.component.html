@@ -1,10 +1,10 @@
 <div>
-    <div class="columns is-multiline">
+    <div class="columns is-multiline p-dialog-content">
         <div class="column is-full">
             <span [title]="'Time created'" style="display: inline-block; margin-right: 32px">
                 <i class="pi pi-clock" style="font-weight: bold; vertical-align: middle; margin-right: 4px"></i>
                 <span style="font-size: 13px; font-weight: 600">
-                    {{task?.timeCreated | date: 'dd.MM.yyyy HH:mm.ss'}}
+                    {{task?.timeCreated | date: 'dd.MM.yyyy HH:mm:ss'}}
                 </span>
             </span>
 
@@ -40,5 +40,67 @@
         <div class="column is-full">
             {{task?.message}}
         </div>
+
+        <div *ngFor="let field of formFields | keyvalue"
+             [hidden]="field.key === '$$$Handler'"
+             class="column is-full">
+            <div class="field"
+                 *ngIf="!['link', 'img'].includes(formFields?.$$$Handler | getPipe:field.key)">
+                <label class="label" [for]="field.key">{{field.key}}</label>
+                <input type="text"
+                       [id]="field.key"
+                       pInputText
+                       [(ngModel)]="task?.formFields[field.key]"
+                       style="width: 100%">
+            </div>
+
+            <div *ngIf="['link'].includes(get(task, 'formFields.$$$Handler['+field.key+']'))">
+                <label class="label"
+                       [for]="field.key"
+                       style="display: inline"
+                >
+                    {{field.key}}:
+                </label>
+
+                <a handleLink [href]="field.value">{{field.value}}</a>
+            </div>
+
+            <div *ngIf="['img'].includes(get(task, 'formFields.$$$Handler['+field.key+']'))">
+                <label class="label"
+                       [for]="field.key">
+                    {{field.key}}
+                </label>
+
+                <a handleLink [href]="field.value"><img [src]="field.value" style="height: 100px"></a>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: right">
+        <button *ngFor="let action of task?.actions?.split(',')"
+                pButton
+                pRipple
+                style="margin-right: 8px"
+                (click)="performAction(action)"
+                [label]="action">
+        </button>
+
+        <button pButton
+                pRipple
+                class="button is-success"
+                style="margin-right: 8px"
+                icon="pi pi-save"
+                (click)="performAction('$Save')"
+                label="Save">
+        </button>
+
+        <button
+                pButton
+                pRipple
+                class="p-button-warning"
+                icon="pi pi-times"
+                (click)="closeModal()"
+                label="Cancel">
+        </button>
     </div>
 </div>
