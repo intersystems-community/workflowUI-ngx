@@ -1,27 +1,28 @@
-# MyApp
+# WorkflowUI-ngx
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
+## Prerequisites
 
-## Development server
+Please set up the [WorkflowAPI](https://github.com/intersystems-ru/WorkflowAPI) project as backend part.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Using prebuilt version
 
-## Code scaffolding
+Download the latest archive from the releases page, unzip and host it with preferred http-server (you can host it as CSP-application with `Unauthenticated` security settings)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Config
 
-## Build
+The configuration file is in `assets/config/` directory
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Development
 
-## Running unit tests
+Run `npm install` inside the repo directory if you didn't before. (You should have Node.js and npm installed)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Running end-to-end tests
+## Build yourself
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `npm install` inside the repo directory if you didn't before. (You should have Node.js and npm installed)
 
-## Further help
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `npm run build-prod` for a production build.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
