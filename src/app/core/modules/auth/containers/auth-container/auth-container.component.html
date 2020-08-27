@@ -3,16 +3,18 @@
         <p-card styleClass="login-card-content">
             <h1 class="is-size-2" style="line-height: 2.5rem">Workflow UI</h1>
 
-            <p style="margin: 32px 0; font-weight: 600;">Welcome, please use the form to sign-in.</p>
+            <p style="margin: 32px 0; font-weight: 600;">
+                {{'LOGIN_FORM.GREETING_MESSAGE' | translate}}
+            </p>
 
             <form [formGroup]="loginForm">
                 <div class="field"
                      [class.shakeit]="isLoginError">
-                    <label class="label" for="username">Username</label>
+                    <label class="label" for="username">{{'LOGIN_FORM.USERNAME' | translate}}</label>
                     <input type="text"
                            id="username"
                            autocomplete="username"
-                           [placeholder]="'Enter your username'"
+                           [placeholder]="'LOGIN_FORM.USERNAME_PLACEHOLDER' | translate"
                            [formControl]="loginForm.get('username')"
                            pInputText
                            style="width: 100%">
@@ -20,11 +22,11 @@
 
                 <div class="field"
                      [class.shakeit]="isLoginError">
-                    <label class="label" for="password">Password</label>
+                    <label class="label" for="password">{{'LOGIN_FORM.PASSWORD' | translate}}</label>
                     <input type="password"
                            id="password"
                            autocomplete="current-password"
-                           [placeholder]="'Enter your password'"
+                           [placeholder]="'LOGIN_FORM.PASSWORD_PLACEHOLDER' | translate"
                            [formControl]="loginForm.get('password')"
                            pInputText
                            style="width: 100%">
@@ -34,11 +36,20 @@
                     <button pButton
                             pRipple
                             type="submit"
-                            label="Sign In"
+                            [label]="'LOGIN_FORM.SIGN_IN' | translate"
                             style="width: 100%"
                             (click)="login()"
                     >
                     </button>
+                </div>
+
+                <div class="field">
+                    <p-dropdown
+                            [options]="languages"
+                            [formControl]="currentLanguage"
+                            styleClass="slim-dropdown is-pulled-right"
+                    >
+                    </p-dropdown>
                 </div>
             </form>
         </p-card>

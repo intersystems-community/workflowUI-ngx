@@ -11,24 +11,24 @@
          styleClass="p-datatable-sm p-datatable-gridlines">
     <ng-template pTemplate="caption">
         <div class="table-header">
-            List of Tasks
+            {{'WORKLIST.TABLE_TITLE' | translate}}
 
             <span class="p-input-icon-left" style="margin-left: 16px; width: 30%">
                 <i class="pi pi-search"></i>
                 <input pInputText
                        type="text"
-                       placeholder="Global Search"
                        style="width: 100%"
+                       [placeholder]="'WORKLIST.SEARCH_PLACEHOLDER' | translate"
                        (input)="table.filterGlobal($event.target.value, 'contains')"
                 />
             </span>
 
             <button pButton
                     pRipple
-                    label="Refresh"
                     icon="pi pi-refresh"
                     class="is-pulled-right"
-                    (click)="onRefresh()"
+                    [label]="'WORKLIST.REFRESH_BUTTON' | translate"
+                    (throttleClick)="onRefresh()"
             >
             </button>
         </div>
@@ -79,7 +79,7 @@
                         icon="pi pi-check"
                         iconPos="left"
                         class="button is-success"
-                        [title]="'Accept task'"
+                        [title]="'WORKLIST.ACCEPT_BUTTON' | translate"
                         (click)="onAccept(task)"
                 >
                 </button>
@@ -91,7 +91,7 @@
                         icon="pi pi-search"
                         iconPos="left"
                         style="margin-right: 8px"
-                        [title]="'Details'"
+                        [title]="'WORKLIST.DETAILS_BUTTON' | translate"
                         (click)="onDetails(task)"
                 >
                 </button>
@@ -103,7 +103,7 @@
                         icon="pi pi-minus-circle"
                         iconPos="left"
                         class="p-button-danger"
-                        [title]="'Relinquish task'"
+                        [title]="'WORKLIST.RELINQUISH_BUTTON' | translate"
                         (click)="onRelinquish(task)"
                 >
                     <i class="fa fa-copy"></i>
@@ -113,7 +113,7 @@
     </ng-template>
 
     <ng-template pTemplate="paginatorleft">
-        <div class="total">Total: {{table.totalRecords}}</div>
+        <div class="total">{{'WORKLIST.TOTAL' | translate}}: {{table.totalRecords}}</div>
     </ng-template>
 </p-table>
 

@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {DialogService} from 'primeng/dynamicdialog';
-import {Task} from '../../../../../core/models/taks';
-import {WorklistService} from '../../worklist.service';
 import {TaskModalComponent} from '../task-modal/task-modal.component';
+import {Task} from '../../../../../core/models/taks';
+import {TranslateService} from '@ngx-translate/core';
+import {WorklistService} from '../../worklist.service';
 
 @Component({
     selector: 'app-worklist-container',
@@ -16,6 +17,7 @@ export class WorklistContainerComponent implements OnInit {
 
     constructor(
         private _dialogService: DialogService,
+        private _i18n: TranslateService,
         private _worklistService: WorklistService
     ) {
     }
@@ -49,10 +51,13 @@ export class WorklistContainerComponent implements OnInit {
 
     showTaskDetails(task: Task): void {
         const ref = this._dialogService.open(TaskModalComponent, {
+            contentStyle: {overflow: 'hidden'},
             data: {id: task.id},
-            header: task.subject || 'Workflow task',
+            header: task.subject || this._i18n.instant('TASK_MODAL.TITLE'),
             dismissableMask: false,
+            transitionOptions: '350ms cubic-bezier(0.25, 0.8, 0.25, 1)',
             modal: true,
+            style: {'max-width': '1200px'},
             width: '70%'
         });
 

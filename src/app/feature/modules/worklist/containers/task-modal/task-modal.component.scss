@@ -17,3 +17,10 @@
 .priority-low {
   color: #2088cd;
 }
+
+.img-placeholder {
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('~assets/images/placeholder.gif');
+}

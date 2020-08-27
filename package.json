@@ -1,6 +1,6 @@
 {
   "name": "workflow-ui-ng",
-  "version": "0.7.0",
+  "version": "0.9.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json --host=0.0.0.0",
@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~10.0.8",
     "@angular/platform-browser-dynamic": "~10.0.8",
     "@angular/router": "~10.0.8",
+    "@ngx-translate/core": "^13.0.0",
+    "@ngx-translate/http-loader": "^6.0.0",
     "@types/lodash-es": "^4.17.3",
     "bulma": "^0.8.0",
     "lodash-es": "^4.17.15",

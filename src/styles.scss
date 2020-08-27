@@ -155,3 +155,11 @@ blockquote, body, dd, dl, dt, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, html
 .p-terminal .p-terminal-input {
   font-family:'Open Sans',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
+
+.slim-dropdown.p-dropdown {
+  height: 26px;
+}
+
+.slim-dropdown.p-dropdown .p-dropdown-label {
+  padding: 2px;
+}

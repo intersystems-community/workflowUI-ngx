@@ -5,6 +5,7 @@ import {BehaviorSubject} from 'rxjs';
 import {Component, OnInit} from '@angular/core';
 import {PrimeNGConfig} from 'primeng/api';
 import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-root',
@@ -19,14 +20,24 @@ export class AppComponent extends BaseComponent implements OnInit {
     constructor(
         private _appService: AppService,
         private _authService: AuthService,
-        private primengConfig: PrimeNGConfig,
+        private _i18n: TranslateService,
+        private _primengConfig: PrimeNGConfig,
         private _router: Router
     ) {
         super();
     }
 
     ngOnInit(): void {
-        this.primengConfig.ripple = true;
+        this._primengConfig.ripple = true;
+        this._i18n.setDefaultLang('en');
+
+        this._appService.language
+            .subscribe(lang => {
+                this._i18n.use(lang);
+            });
+
+        const language: string = localStorage.getItem('wf-current-language') || 'en';
+        this._appService.language.next(language);
 
         this._authService.isLoggedIn$$
             .subscribe(isLoggedIn => {

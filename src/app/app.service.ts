@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class AppService {
-    constructor(
-        private _http: HttpClient
-    ) {
-    }
+    language: BehaviorSubject<string> = new BehaviorSubject<string>('en');
+
+    constructor() {}
 }

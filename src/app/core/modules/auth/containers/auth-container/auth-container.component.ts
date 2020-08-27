@@ -1,7 +1,12 @@
+import {AppService} from '../../../../../app.service';
 import {AuthService} from '@core/modules/auth/auth.service';
+import {BaseComponent} from '@shared/components/base/base.component';
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {LANGUAGES} from '../../../../../../assets/config/config.json';
 import {Router} from '@angular/router';
+import {SelectItem} from 'primeng/api';
+import {takeUntil} from 'rxjs/operators';
 import {UserInfo} from '@core/models/user-info';
 
 @Component({
@@ -9,8 +14,10 @@ import {UserInfo} from '@core/models/user-info';
     templateUrl: './auth-container.component.html',
     styleUrls: ['./auth-container.component.scss']
 })
-export class AuthContainerComponent {
+export class AuthContainerComponent extends BaseComponent implements OnInit {
+    currentLanguage: FormControl = new FormControl('en');
     isLoginError: boolean = false;
+    languages: SelectItem[] = LANGUAGES;
 
     loginForm: FormGroup = this._fb.group({
         username: ['', Validators.required],
@@ -18,10 +25,23 @@ export class AuthContainerComponent {
     });
 
     constructor(
+        private _appService: AppService,
         private _authService: AuthService,
         private _fb: FormBuilder,
         private _router: Router
     ) {
+        super();
+    }
+
+    ngOnInit(): void {
+        this.currentLanguage.setValue(this._appService.language.value);
+
+        this.currentLanguage.valueChanges
+            .pipe(takeUntil(this.ngUnsubscribe$))
+            .subscribe((language: string) => {
+                this._appService.language.next(language);
+                localStorage.setItem('wf-current-language', language);
+            });
     }
 
     login() {

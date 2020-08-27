@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../../../shared/modules/shared.module';
 import {TaskModalComponent} from './containers/task-modal/task-modal.component';
 import {TasksTableComponent} from './components/tasks-table/tasks-table.component';
+import {TranslateModule} from '@ngx-translate/core';
 import {VendorModule} from '@shared/modules/vendor.module';
 import {WorklistContainerComponent} from './containers/worklist-container/worklist-container.component';
 import {WorklistRouting} from './worklist.routing';
@@ -15,6 +16,7 @@ import {WorklistRouting} from './worklist.routing';
         FormsModule,
         ReactiveFormsModule,
         SharedModule,
+        TranslateModule,
         VendorModule,
         WorklistRouting
     ],

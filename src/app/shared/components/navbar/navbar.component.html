@@ -7,7 +7,7 @@
 
             <div class="navbar-end" style="margin-left: auto">
                 <span class="navbar-item" style="display: inline-flex">
-                    <span class="tag is-info" style="font-size: 13px;" [title]="'Current user'">
+                    <span class="tag is-info" style="font-size: 13px;" [title]="'NAVBAR.CURRENT_USER' | translate">
                         <i class="pi pi-user"
                            style="font-size: 13px; font-weight: bold; vertical-align: middle; margin-right: 6px">
                         </i>
@@ -18,11 +18,11 @@
                 <div class="navbar-item" style="display: inline-flex; padding-right: 0">
                     <button pButton
                             pRipple
-                            class=" p-button-primary p-button-outlined"
+                            class="p-button-primary p-button-outlined"
                             icon="pi pi-sign-out"
                             iconPos="right"
-                            [label]="'Sign out'"
-                            (click)="logout()">
+                            [label]="('NAVBAR.SIGN_OUT' | translate) || 'Sign out'"
+                            (throttleClick)="logout()">
                     </button>
                 </div>
             </div>
