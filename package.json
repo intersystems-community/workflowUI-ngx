@@ -1,6 +1,6 @@
 {
   "name": "workflow-ui-ng",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json --host=0.0.0.0",
