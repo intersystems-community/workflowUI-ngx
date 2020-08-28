@@ -2,7 +2,7 @@
     <div class="container is-fluid">
         <div class="navbar-brand" style="width: 100%; margin-left: 0">
             <div class="navbar-item">
-                <span class="has-text-weight-bold" style="font-size: 20px">Workflow UI</span>
+                <span class="has-text-weight-bold">Workflow UI</span>
             </div>
 
             <div class="navbar-end" style="margin-left: auto">
@@ -18,10 +18,11 @@
                 <div class="navbar-item" style="display: inline-flex; padding-right: 0">
                     <button pButton
                             pRipple
-                            class="p-button-primary p-button-outlined"
+                            class="p-button-primary p-button-outlined no-label-mobile"
                             icon="pi pi-sign-out"
                             iconPos="right"
                             [label]="('NAVBAR.SIGN_OUT' | translate) || 'Sign out'"
+                            [title]="'NAVBAR.SIGN_OUT' | translate"
                             (throttleClick)="logout()">
                     </button>
                 </div>

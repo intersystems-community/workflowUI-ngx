@@ -78,11 +78,11 @@ blockquote, body, dd, dl, dt, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, html
 }
 
 .hero.fullheight {
-  min-height: calc(100vh - 35px);
+  min-height: calc(100vh - 55px);
 }
 
 .hero.fullheight-with-navbar {
-  min-height: calc(100vh - 46px - 35px);
+  min-height: calc(100vh - 46px - 55px);
 }
 
 .main-bg {
@@ -162,4 +162,55 @@ blockquote, body, dd, dl, dt, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, html
 
 .slim-dropdown.p-dropdown .p-dropdown-label {
   padding: 2px;
+}
+
+.container.is-fluid {
+  max-width: none;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 100%;
+}
+
+.details-modal {
+  width: 90%;
+}
+
+@media screen and (max-width: 768px) {
+  .no-label-mobile .p-button-label {
+    display: none;
+  }
+
+  .no-label-mobile .p-button-icon {
+    margin: 0 !important;
+  }
+
+  .is-fullwidth-mobile {
+    width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 514px) {
+  .hero.fullheight {
+    min-height: calc(100vh - 35px);
+  }
+
+  .hero.fullheight-with-navbar {
+    min-height: calc(100vh - 46px - 35px);
+  }
+
+  .container.is-fluid {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .container.is-fluid {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .details-modal {
+    width: 70%;
+  }
 }

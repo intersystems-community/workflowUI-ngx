@@ -6,6 +6,7 @@
      style="max-height: 60vh; overflow: auto; padding: 0">
     <div class="column is-full">
         <span *ngIf="task?.timeCreated"
+              class="details-header"
               [title]="'TASK_MODAL.TIME_CREATED' | translate"
               style="display: inline-block; margin-right: 32px">
             <i class="pi pi-clock" style="font-weight: bold; vertical-align: middle; margin-right: 4px"></i>
@@ -16,6 +17,7 @@
 
         <span *ngIf="task?.role"
               [title]="'TASK_MODAL.ROLE' | translate"
+              class="details-header"
               style="display: inline-block; margin-right: 32px">
             <i class="pi pi-user" style="font-weight: bold; vertical-align: middle; margin-right: 4px"></i>
             <span style="font-size: 13px; font-weight: 600">
@@ -25,7 +27,7 @@
 
         <div *ngIf="task?.priority"
              [title]="'TASK_MODAL.PRIORITY' | translate"
-             style="display: inline-flex;" class="tags has-addons">
+             style="display: inline-flex;" class="details-header tags has-addons">
             <span class="tag is-light" style="margin-bottom: 0; font-size: 12px">
                 {{'TASK_MODAL.PRIORITY' | translate}}
             </span>
@@ -97,6 +99,7 @@
             pButton
             pRipple
             style="margin-right: 8px"
+            class="is-fullwidth-mobile"
             [disabled]="loading"
             (throttleClick)="performAction(action)"
             [label]="action">
@@ -104,7 +107,7 @@
 
     <button pButton
             pRipple
-            class="button is-success"
+            class="button is-success is-fullwidth-mobile"
             style="margin-right: 8px"
             icon="pi pi-save"
             [disabled]="loading"
@@ -115,7 +118,7 @@
 
     <button pButton
             pRipple
-            class="p-button-secondary"
+            class="p-button-secondary is-fullwidth-mobile"
             icon="pi pi-times"
             [disabled]="loading"
             [label]="'TASK_MODAL.CLOSE_BUTTON' | translate"

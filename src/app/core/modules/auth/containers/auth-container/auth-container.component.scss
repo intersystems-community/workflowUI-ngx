@@ -20,16 +20,16 @@
   align-self: center;
   background: radial-gradient(circle at 50% 3%, #f3f4f9, #d7dbe8);
   border-radius: 2px;
-  min-width: 420px;
+  min-width: 380px;
   opacity: 0.9;
-  width: 25%;
   z-index: 1;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .login-card {
     align-self: auto;
     margin-left: calc(10% + 90px);
+    width: 420px;
   }
 }
 

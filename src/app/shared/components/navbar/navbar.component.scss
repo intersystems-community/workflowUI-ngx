@@ -1,3 +1,14 @@
 .navbar {
   z-index: 104;
 }
+
+.navbar-brand>.navbar-item span {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 769px) {
+  .navbar-brand>.navbar-item span {
+    font-size: 20px;
+  }
+}
+

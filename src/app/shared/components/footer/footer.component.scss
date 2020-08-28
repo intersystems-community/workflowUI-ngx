@@ -10,3 +10,14 @@
 .footer strong {
   color: #f0f2f5;
 }
+
+.footer p {
+  font-size: 11px;
+  line-height: 20px;
+}
+
+@media screen and (min-width: 769px) {
+  .footer p {
+    font-size: 14px;
+  }
+}

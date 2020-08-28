@@ -24,3 +24,15 @@
   background-size: contain;
   background-image: url('~assets/images/placeholder.gif');
 }
+
+.details-header,
+.p-dialog-footer button {
+  margin-bottom: 8px;
+}
+
+@media screen and (min-width: 769px) {
+  .details-header,
+  .p-dialog-footer button {
+    margin-bottom: 0;
+  }
+}

@@ -58,7 +58,7 @@ export class WorklistContainerComponent implements OnInit {
             transitionOptions: '350ms cubic-bezier(0.25, 0.8, 0.25, 1)',
             modal: true,
             style: {'max-width': '1200px'},
-            width: '70%'
+            styleClass: 'details-modal'
         });
 
         ref.onClose.subscribe(action => action ? this.loadTasks() : null);
