@@ -1,9 +1,8 @@
-import {AppService} from './app.service';
+import {AppConfig, AppService} from './app.service';
 import {AuthService} from '@core/modules/auth/auth.service';
 import {BaseComponent} from '@shared/components/base/base.component';
 import {BehaviorSubject} from 'rxjs';
 import {Component, OnInit} from '@angular/core';
-import {LANGUAGES} from '../assets/config/config.json';
 import {PrimeNGConfig} from 'primeng/api';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
@@ -30,7 +29,7 @@ export class AppComponent extends BaseComponent implements OnInit {
 
     ngOnInit(): void {
         this._primengConfig.ripple = true;
-        const languagesAvailable: string[] = LANGUAGES.map(lang => lang.value);
+        const languagesAvailable: string[] = AppConfig.LANGUAGES.map(lang => lang.value);
         this._i18n.addLangs(languagesAvailable);
         this._i18n.setDefaultLang('en');
 

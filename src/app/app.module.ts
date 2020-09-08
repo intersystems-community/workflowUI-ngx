@@ -1,3 +1,4 @@
+import {APP_INITIALIZER} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CustomInterceptor} from './custom-interceptor';
@@ -9,6 +10,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 
 import {AppRouting} from './app.routing';
 import {AppComponent} from './app.component';
+import {AppService} from './app.service';
 import {CoalescingComponentFactoryResolver} from '@shared/services/coalescing-component-factory-resolver.service';
 import {ServiceInjector} from '@core/service.injector';
 
@@ -19,6 +21,10 @@ import {VendorModule} from '@shared/modules/vendor.module';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+}
+
+export function initializeApp(appService: AppService) {
+    return () => appService.loadConfig();
 }
 
 @NgModule({
@@ -41,6 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         VendorModule
     ],
     providers: [
+        {provide: APP_INITIALIZER, useFactory: initializeApp, deps: [AppService], multi: true },
         {provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true}
     ],
     declarations: [AppComponent],

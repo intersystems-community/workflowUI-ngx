@@ -1,7 +1,7 @@
+import {AppConfig} from '../../../app.service';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {REST_API_URL} from '../../../../assets/config/config.json';
 import {Router} from '@angular/router';
 import {tap} from 'rxjs/operators';
 import {UserInfo} from '@core/models/user-info';
@@ -45,7 +45,7 @@ export class AuthService {
     }
 
     getUserInfo(headers?: HttpHeaders): Observable<UserInfo> {
-        const obs = this._http.get(`${REST_API_URL}/user-info`, {headers}) as Observable<UserInfo>;
+        const obs = this._http.get(`${AppConfig.REST_API_URL}/user-info`, {headers}) as Observable<UserInfo>;
         return obs.pipe(
             tap(({username, timeout}: UserInfo) => {
                 this.currentUser$$.next(username);
@@ -67,7 +67,7 @@ export class AuthService {
         this._router.navigate(['/login']);
 
         if (onServer) {
-            this._http.get(`${REST_API_URL}/logout`).subscribe(() => {});
+            this._http.get(`${AppConfig.REST_API_URL}/logout`).subscribe(() => {});
         }
     }
 

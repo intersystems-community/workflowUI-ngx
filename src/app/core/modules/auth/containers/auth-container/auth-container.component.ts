@@ -1,9 +1,8 @@
-import {AppService} from '../../../../../app.service';
+import {AppConfig, AppService} from '../../../../../app.service';
 import {AuthService} from '@core/modules/auth/auth.service';
 import {BaseComponent} from '@shared/components/base/base.component';
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {LANGUAGES} from '../../../../../../assets/config/config.json';
 import {Router} from '@angular/router';
 import {SelectItem} from 'primeng/api';
 import {takeUntil} from 'rxjs/operators';
@@ -17,7 +16,7 @@ import {UserInfo} from '@core/models/user-info';
 export class AuthContainerComponent extends BaseComponent implements OnInit {
     currentLanguage: FormControl = new FormControl('en');
     isLoginError: boolean = false;
-    languages: SelectItem[] = LANGUAGES;
+    languages: SelectItem[] = AppConfig.LANGUAGES;
 
     loginForm: FormGroup = this._fb.group({
         username: ['', Validators.required],
@@ -47,7 +46,7 @@ export class AuthContainerComponent extends BaseComponent implements OnInit {
     login() {
         if (this.loginForm.valid) {
             const form = this.loginForm.value;
-            this._authService.login(form.username, form.password)
+            this._authService.login(form.username.trim(), form.password)
                 .subscribe(({username, timeout}: UserInfo) => {
                     this._authService.isLoggedIn$$.next(true);
                     localStorage.setItem('wf-current-user', username);
