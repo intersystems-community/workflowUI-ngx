@@ -3,7 +3,7 @@
   <Document name="workflow-ui-ngx.ZPM">
     <Module>
       <Name>workflow-ui-ngx</Name>
-      <Version>0.11.0</Version>
+      <Version>0.11.1</Version>
       <Packaging>module</Packaging>
       <CSPApplication
         Url="/csp/wf"
