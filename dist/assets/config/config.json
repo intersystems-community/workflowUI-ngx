@@ -9,6 +9,6 @@
             "value": "ru"
         }
     ],
-    "REST_API_URL": "/csp/wf/rest"
+    "REST_API_URL": "/workflow/rest"
 }
 
