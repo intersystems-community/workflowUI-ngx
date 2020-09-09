@@ -15,7 +15,7 @@ export class WorklistService {
     }
 
     getTasks(): Observable<Task[]> {
-       return this._http.get(`${AppConfig.REST_API_URL}/tasks`) as Observable<Task[]>;
+       return this._http.get(`${AppConfig.REST_API_URL}/tasks/${AppConfig.TASKS_LIMIT}`) as Observable<Task[]>;
     }
 
     getTask(id: string): Observable<Task> {
