@@ -4,6 +4,7 @@ import {CardModule} from 'primeng/card';
 import {DropdownModule} from 'primeng/dropdown';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {InputTextModule} from 'primeng/inputtext';
+import {MarkdownModule} from 'ngx-markdown';
 import {MessageService} from 'primeng/api';
 import {NgModule} from '@angular/core';
 import {PanelModule} from 'primeng/panel';
@@ -20,6 +21,7 @@ import {ToastModule} from 'primeng/toast';
         DropdownModule,
         DynamicDialogModule,
         InputTextModule,
+        MarkdownModule.forRoot(),
         PanelModule,
         ProgressSpinnerModule,
         RippleModule,
@@ -33,6 +35,7 @@ import {ToastModule} from 'primeng/toast';
         DropdownModule,
         DynamicDialogModule,
         InputTextModule,
+        MarkdownModule,
         PanelModule,
         ProgressSpinnerModule,
         RippleModule,

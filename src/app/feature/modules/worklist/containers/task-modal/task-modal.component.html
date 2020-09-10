@@ -52,7 +52,7 @@
 
     <!--Message-->
     <div *ngIf="task?.message" class="column is-full">
-        {{task?.message}}
+        <markdown class="markdown-body" [data]="task?.message"></markdown>
     </div>
 
     <div *ngFor="let field of formFields | keyvalue"
