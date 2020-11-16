@@ -1,5 +1,7 @@
 {
   "LOGIN_FORM": {
+    "401_LOGIN_ERROR": "Incorrect login and/or password",
+    "403_LOGIN_ERROR": "Incorrect login and/or password or user isn't valid Workflow user",
     "GREETING_MESSAGE": "Welcome, please use the form to sign-in.",
     "PASSWORD": "Password",
     "PASSWORD_PLACEHOLDER": "Enter your password",

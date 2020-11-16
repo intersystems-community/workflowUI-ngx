@@ -32,6 +32,10 @@
                            style="width: 100%">
                 </div>
 
+                <div *ngIf="errorMsg" class="field p-error">
+                    {{errorMsg | translate}}
+                </div>
+
                 <div class="buttons" style="margin-top: 32px">
                     <button pButton
                             pRipple

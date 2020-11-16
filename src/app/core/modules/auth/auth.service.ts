@@ -47,9 +47,14 @@ export class AuthService {
     getUserInfo(headers?: HttpHeaders): Observable<UserInfo> {
         const obs = this._http.get(`${AppConfig.REST_API_URL}/user-info`, {headers}) as Observable<UserInfo>;
         return obs.pipe(
-            tap(({username, timeout}: UserInfo) => {
-                this.currentUser$$.next(username);
-                this.sessionTimeout = timeout;
+            tap((userInfo: UserInfo) => {
+                if (userInfo) {
+                    const {username, timeout} = userInfo;
+                    this.currentUser$$.next(username);
+                    this.sessionTimeout = timeout;
+                } else {
+                    this.logout(false);
+                }
             })
         ) as Observable<UserInfo>;
     }

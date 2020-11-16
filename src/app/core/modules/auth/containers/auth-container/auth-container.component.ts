@@ -15,6 +15,7 @@ import {UserInfo} from '@core/models/user-info';
 })
 export class AuthContainerComponent extends BaseComponent implements OnInit {
     currentLanguage: FormControl = new FormControl('en');
+    errorMsg: string = '';
     isLoginError: boolean = false;
     languages: SelectItem[] = AppConfig.LANGUAGES;
 
@@ -44,20 +45,37 @@ export class AuthContainerComponent extends BaseComponent implements OnInit {
     }
 
     login() {
+        this.errorMsg = '';
+
         if (this.loginForm.valid) {
             const form = this.loginForm.value;
             this._authService.login(form.username.trim(), form.password)
-                .subscribe(({username, timeout}: UserInfo) => {
-                    this._authService.isLoggedIn$$.next(true);
-                    localStorage.setItem('wf-current-user', username);
-                    this._router.navigate(['worklist']);
+                .subscribe((userInfo: UserInfo) => {
+                    if (userInfo) {
+                        const {username, timeout} = userInfo;
+                        this._authService.isLoggedIn$$.next(true);
+                        localStorage.setItem('wf-current-user', username);
+                        this._router.navigate(['worklist']);
+                    }
+                },
+                error => {
+                    this.setLoginErrorShaker();
+
+                    if (error && error.status === 401) {
+                        this.errorMsg = 'LOGIN_FORM.401_LOGIN_ERROR';
+                    }
+
+                    if (error && error.status === 403) {
+                        this.errorMsg = 'LOGIN_FORM.403_LOGIN_ERROR';
+                    }
                 });
         } else {
-            this.isLoginError = false;
-            setTimeout(() => {
-                // this.messages = [{severity: 'error', detail: 'AUTH.REQUIRED_FIELDS'}];
-                this.isLoginError = true;
-            }, 10);
+            this.setLoginErrorShaker();
         }
+    }
+
+    private setLoginErrorShaker() {
+        this.isLoginError = false;
+        setTimeout(() => this.isLoginError = true, 10);
     }
 }
