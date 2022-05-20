@@ -10,6 +10,7 @@
         }
     ],
     "REST_API_URL": "/csp/workflow/rest",
+    "MAIN_APP_LOGIN_URL": "/your-login-url",
     "TASKS_LIMIT": 10000
 }
 

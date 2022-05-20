@@ -48,7 +48,7 @@ export class AppComponent extends BaseComponent implements OnInit {
                 this.isLoggedIn = isLoggedIn;
 
                 if (!isLoggedIn) {
-                    this._router.navigate(['/login']);
+                    this._router.navigate([AppConfig.MAIN_APP_LOGIN_URL]);
                 }
             });
 

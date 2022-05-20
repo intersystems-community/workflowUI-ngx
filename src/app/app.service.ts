@@ -17,6 +17,7 @@ export class AppService {
         AppConfig = {
             LANGUAGES: [{label: '🇬🇧 English', value: 'en'}, {label: '🇷🇺 Русский', value: 'ru'}],
             REST_API_URL: '/workflow/rest',
+            MAIN_APP_LOGIN_URL: "/login",
             TASKS_LIMIT: 10000
         };
     }

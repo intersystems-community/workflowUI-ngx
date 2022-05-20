@@ -17,7 +17,7 @@ export class AuthService {
      * Timer to finish session for current user
      */
     private sessionTimeout: number = 900;
-    private sessionTimeoutInstance: number | undefined;
+    private sessionTimeoutInstance: any;
 
     currentUser$$: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
     isLoggedIn$$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -34,15 +34,6 @@ export class AuthService {
         private _http: HttpClient,
         private _router: Router
     ) {}
-
-    /**
-     * Send post query with login and password for user log in
-     */
-    login(login: string, password: string): Observable<UserInfo> {
-        const token: string = btoa(`${login}:${password}`);
-        const headers: HttpHeaders = new HttpHeaders({Authorization: `Basic ${token}`});
-        return this.getUserInfo(headers);
-    }
 
     getUserInfo(headers?: HttpHeaders): Observable<UserInfo> {
         const obs = this._http.get(`${AppConfig.REST_API_URL}/user-info`, {headers}) as Observable<UserInfo>;
@@ -69,7 +60,7 @@ export class AuthService {
         this.currentUser$$.next('');
         this.isLoggedIn$$.next(false);
         localStorage.removeItem('wf-current-user');
-        this._router.navigate(['/login']);
+        this._router.navigate([AppConfig.MAIN_APP_LOGIN_URL]);
 
         if (onServer) {
             this._http.get(`${AppConfig.REST_API_URL}/logout`).subscribe(() => {});
