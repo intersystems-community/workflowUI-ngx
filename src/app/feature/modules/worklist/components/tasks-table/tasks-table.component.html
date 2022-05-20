@@ -5,11 +5,11 @@
          [rows]="25"
          [rowsPerPageOptions]="[10, 25, 50, 100]"
          [value]="items"
-         [scrollable]="true"
-         [tableStyle]="{minWidth: '1024px'}"
          dataKey="id"
          sortField="timeCreated"
          [sortOrder]="-1"
+         [tableStyle]="{ minWidth: '1024px', width: '100%' }"
+         [responsiveLayout]="'scroll'"
          styleClass="p-datatable-sm p-datatable-gridlines">
     <ng-template pTemplate="caption">
         <div class="table-header">

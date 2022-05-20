@@ -16,6 +16,7 @@
       "@shared/*": ["app/shared/*"]
     },
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
     "target": "es2015",
     "typeRoots": [

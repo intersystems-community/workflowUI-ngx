@@ -1,8 +1,8 @@
 {
   "/csp": {
-    "target": "http://localhost:57772",
+    "target": "http://localhost:52773",
     "secure": false,
     "changeOrigin": true,
-    "pathRewrite": {"^/csp" : "http://localhost:57772/csp"}
+    "pathRewrite": {"^/csp" : "http://localhost:52773/csp"}
   }
 }

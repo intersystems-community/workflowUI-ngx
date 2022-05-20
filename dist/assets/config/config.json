@@ -9,7 +9,7 @@
             "value": "ru"
         }
     ],
-    "REST_API_URL": "/workflow/rest",
+    "REST_API_URL": "/csp/workflow/rest",
     "TASKS_LIMIT": 10000
 }
 

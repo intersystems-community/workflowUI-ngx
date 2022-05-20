@@ -1,0 +1,7 @@
+::ng-deep .p-datatable-scrollable-header-box {
+    padding-right: unset !important;
+}
+
+::ng-deep .p-datatable-virtual-scrollable-body {
+    overflow-y: overlay;
+}
